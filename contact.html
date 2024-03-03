@@ -2,37 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, intitial-scale=1.0">
+    <!-- Set the viewport to control layout on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Milestone Project</title>
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Contact Us heading -->
     <h1>Contact Us</h1>
+    <!-- Instruction for users -->
     <p>Feel free to ask any question or to give us a feedback.</p>
 
+    <!-- Contact form section -->
     <section class="contact_Form">
-    <div class="container">
-        <form action="action_page.php">
-      
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="firstname" placeholder="Your name..">
-      
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-          <label for="Email">Email Address</label>
-          <input type="text" id="Email" name="Email" placeholder="Email">
-      
-          <label for="subject">Subject</label>
-          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-      
-          <input type="submit" value="Submit">
-      
-        </form>
-      </div>
-
+        <div class="container">
+            <!-- Form for user input -->
+            <form action="action_page.php" onsubmit="return validateForm()">
+                <!-- First Name field -->
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <!-- Last Name field -->
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                <!-- Email Address field -->
+                <label for="Email">Email Address</label>
+                <input type="text" id="Email" name="Email" placeholder="Email">
+                <!-- Subject field -->
+                <label for="subject">Subject</label>
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                <!-- Submit button -->
+                <input type="submit" value="Submit">
+            </form>
+        </div>
     </section>
 
+    <!-- JavaScript for form validation -->
     <script>
         function validateForm(){
             var fname = document.getElementById('fname').value;
@@ -47,6 +52,7 @@
             lnameError.innerHTML = '';
             emailError.innerHTML = '';
 
+            // Validation checks
             if (fname === ''){
                 fnameError.innerHTML = 'Name is required';
                 isValid = false;
@@ -60,7 +66,7 @@
             if (Email === ''){
                 emailError.innerHTML = 'Email is required';
                 isValid = false;
-            }else if (!/\S+@\S+\.\S+/.test(Email)){
+            } else if (!/\S+@\S+\.\S+/.test(Email)){
                 emailError.innerHTML = 'Invalid email address';
                 isValid = false;
             }
